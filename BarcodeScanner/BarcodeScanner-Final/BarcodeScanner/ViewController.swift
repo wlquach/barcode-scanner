@@ -195,7 +195,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     private func showInfo(for payload: String) {
         if let product = productCatalog.item(forKey: payload) {
             print(payload)
-            showAlert(withTitle: product.name ?? "No product name provided", message: payload)
+            var alertBody = product.name ?? "NO_NAME" + "\n" + payload
+            showAlert(withTitle: alertBody ?? "No product name provided", message: payload)
         } else {
             showAlert(withTitle: "No item found for this payload", message: "")
         }
